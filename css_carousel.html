@@ -1,0 +1,373 @@
+<style>
+#bsl_cssSlider, #bsl_cssSlider .slider_container_outer, #bsl_cssSlider .slider_container_inner,#bsl_cssSlider .slider_unit {
+  background: rgba(255,0,0,.1);
+}
+#bsl_cssSlider{
+  width: 90%;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+#bsl_cssSlider .slider_container_outer{
+  width: calc(100% - 100px);
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  max-width: 410px;
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+}
+
+#bsl_cssSlider .slider_container_inner{
+  height: 100px;
+  width: 850px;
+  margin: 0 auto;
+  padding: 0;
+  left:0;
+  flex-shrink: 0;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  -webkit-scroll-snap-points-x: repeat(40px);
+      -ms-scroll-snap-points-x: repeat(40px);
+          scroll-snap-points-x: repeat(40px);
+  -webkit-scroll-snap-type: mandatory;
+      -ms-scroll-snap-type: mandatory;
+          scroll-snap-type: mandatory;
+  scroll-behavior: smooth;
+}
+
+#bsl_cssSlider .slider_unit{
+  width: 75px;
+  display: inline-block;
+  height: 100%;
+  margin-right: 5px;
+  margin-left: 0;
+  padding: 0;
+  text-align: center;
+  list-style: none;
+  left:0;
+}
+#bsl_cssSlider .slider_unit:first-child{margin-left: 5px;}
+#bsl_cssSlider .slider_unit:last-child{margin-right: 0;}
+
+#bsl_cssSlider .slider_unit:hover{
+  cursor: pointer;
+  background-color: olive;
+  transform: scale(1.15);
+  transition: transform .5s;
+}
+
+#bsl_cssSlider input[type=radio]{
+  /*position: absolute;
+   - top: -9999px;
+   left: -9999px;
+*/
+ }
+
+ #bsl_cssSlider label{
+   line-height: 100px;
+ }
+
+
+#bsl_cssSlider .arrow_label{
+  position: absolute;
+  left:0;
+}
+
+#bsl_cssSlider .arrow_label.right{
+  left:unset;
+  right: 0;
+}
+#bsl_cssSlider .arrow_label:hover{
+  cursor: pointer;
+  color:white;
+}
+#bsl_cssSlider .arrow_label{
+  /*display: none;*/
+}
+
+#bsl_cssSlider .wr.i0{
+display: none;
+}
+
+/* NAV CONTROLS*/
+  /*right controllers*/
+    #bsl_cssSlider #arrow_right10:checked ~ div .slider_container_inner{
+      left: unset;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right10:checked ~ .wr.i10 {display: none;}
+
+    #bsl_cssSlider #arrow_right9:checked ~ div .slider_container_inner{
+      left: 720px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right9:checked ~ div .wr.i9 {display: none;}
+    #bsl_cssSlider #arrow_right9:checked ~ div div .wl.i8 {display: none;}
+
+
+    #bsl_cssSlider #arrow_right8:checked ~ div .slider_container_inner{
+      left: 640px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right8:checked ~ div div .wr.i8 {display: none;}
+    #bsl_cssSlider #arrow_right9:checked ~ div div div .wl.i7 {display: none;}
+
+    #bsl_cssSlider #arrow_right7:checked ~ div .slider_container_inner{
+      left: 560px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right7:checked ~ div div div .wr.i7 {display: none;}
+    #bsl_cssSlider #arrow_right9:checked ~ div div div div .wl.i6 {display: none;}
+
+    #bsl_cssSlider #arrow_right6:checked ~ div .slider_container_inner{
+      left: 480px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right6:checked ~ div div div div .wr.i6 {display: none;}
+    #bsl_cssSlider #arrow_right6:checked ~ div div div div div .wl.i5 {display: none;}
+
+    #bsl_cssSlider #arrow_right5:checked ~ div .slider_container_inner{
+      left: 400px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right5:checked ~ div div div div div .wr.i5 {display: none;}
+    #bsl_cssSlider #arrow_right5:checked ~ div div div div div div .wl.i4 {display: none;}
+
+    #bsl_cssSlider #arrow_right4:checked ~ div .slider_container_inner{
+      left: 320px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right4:checked ~ div div div div div div .wr.i4 {display: none;}
+    #bsl_cssSlider #arrow_right4:checked ~ div div div div div div div .wl.i3 {display: none;}
+
+    #bsl_cssSlider #arrow_right3:checked ~ div .slider_container_inner{
+      left: 240px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right3:checked ~ div div div div div div div .wr.i3 {display: none;}
+    #bsl_cssSlider #arrow_right3:checked ~ div div div div div div div div .wl.i2 {display: none;}
+
+    #bsl_cssSlider #arrow_right2:checked ~ div .slider_container_inner{
+      left: 160px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right2:checked ~ div div div div div div div div .wr.i2 {display: none;}
+    #bsl_cssSlider #arrow_right2:checked ~ div div div div div div div div div .wl.i1 {display: none;}
+
+    #bsl_cssSlider #arrow_right1:checked ~ div .slider_container_inner{
+      left: 80px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right1:checked ~ div div div div div div div div div .wr.i1 {display: none;}
+    #bsl_cssSlider #arrow_right1:checked ~ div div div div div div div div div div .wr.i0 {display: none;}
+
+    #bsl_cssSlider #arrow_right0:checked ~ div .slider_container_inner{
+      left: 0px;
+      transition: left 1s;
+    }
+    #bsl_cssSlider #arrow_right0:checked ~ div div div div div div div div div div .wr.i0 {display: none;}
+
+
+  /*left controllers*/
+  #bsl_cssSlider #arrow_left10:checked ~ div .slider_container_inner{
+    left: -800px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left10:checked ~ .wl.i10 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div div div div div div div div .wr.i0 {display: none;}
+
+  #bsl_cssSlider #arrow_left9:checked ~ div .slider_container_inner{
+    left: -720px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left9:checked ~ div .wl.i9 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div div div div div div div .wr.i1 {display: none;}
+
+  #bsl_cssSlider #arrow_left8:checked ~ div .slider_container_inner{
+    left: -640px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left8:checked ~ div div .wl.i8 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div div div div div div .wr.i2 {display: none;}
+
+  #bsl_cssSlider #arrow_left7:checked ~ div .slider_container_inner{
+    left: -560px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left7:checked ~ div div div .wl.i7 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div div div div div .wr.i3 {display: none;}
+
+  #bsl_cssSlider #arrow_left6:checked ~ div .slider_container_inner{
+    left: -480px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left6:checked ~ div div div div .wl.i6 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div div div div .wr.i4 {display: none;}
+
+  #bsl_cssSlider #arrow_left5:checked ~ div .slider_container_inner{
+    left: -400px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left5:checked ~ div div div div div .wl.i5 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div div div .wr.i5 {display: none;}
+
+  #bsl_cssSlider #arrow_left4:checked ~ div .slider_container_inner{
+    left: -320px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left4:checked ~ div div div div div div .wl.i4 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div div .wr.i6 {display: none;}
+
+  #bsl_cssSlider #arrow_left3:checked ~ div .slider_container_inner{
+    left: -240px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left3:checked ~ div div div div div div div .wl.i3 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div .wr.i7 {display: none;}
+
+  #bsl_cssSlider #arrow_left2:checked ~ div .slider_container_inner{
+    left: -160px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left2:checked ~ div div div div div div div div .wl.i2 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div div .wr.i8 {display: none;}
+
+  #bsl_cssSlider #arrow_left1:checked ~ div .slider_container_inner{
+    left: -80px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left1:checked ~ div div div div div div div div div .wl.i1 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div div .wr.i9 {display: none;}
+
+  #bsl_cssSlider #arrow_left0:checked ~ div .slider_container_inner{
+    left: 0px;
+    transition: left 1s;
+  }
+  #bsl_cssSlider #arrow_left0:checked ~ div div div div div div div div div div .wl.i0 {display: none;}
+  #bsl_cssSlider #arrow_left1:checked ~ div .wr.i10 {display: none;}
+
+/**/
+</style>
+
+<section id="bsl_cssSlider">
+  <!-- NAVIGATION -->
+    <!-- radios  -->
+      <input type="radio" id="arrow_left0" name="control">
+      <input type="radio" id="arrow_left1" name="control">
+      <input type="radio" id="arrow_left2" name="control">
+      <input type="radio" id="arrow_left3" name="control">
+      <input type="radio" id="arrow_left4" name="control">
+      <input type="radio" id="arrow_left5" name="control">
+      <input type="radio" id="arrow_left6" name="control">
+      <input type="radio" id="arrow_left7" name="control">
+      <input type="radio" id="arrow_left8" name="control">
+      <input type="radio" id="arrow_left9" name="control">
+      <input type="radio" id="arrow_left10" name="control">
+
+
+      <input type="radio" id="arrow_right0" name="control">
+      <input type="radio" id="arrow_right1" name="control">
+      <input type="radio" id="arrow_right2" name="control">
+      <input type="radio" id="arrow_right3" name="control">
+      <input type="radio" id="arrow_right4" name="control">
+      <input type="radio" id="arrow_right5" name="control">
+      <input type="radio" id="arrow_right6" name="control">
+      <input type="radio" id="arrow_right7" name="control">
+      <input type="radio" id="arrow_right8" name="control">
+      <input type="radio" id="arrow_right9" name="control">
+      <input type="radio" id="arrow_right10" name="control">
+
+
+    <!-- labels  -->
+      <div class="wl i10">
+        <div class="wl i9">
+          <div class="wl i8">
+            <div class="wl i7">
+              <div class="wl i6">
+                <div class="wl i5">
+                  <div class="wl i4">
+                    <div class="wl i3">
+                      <div class="wl i2">
+                        <div class="wl i1">
+                          <div class="wl i0">
+                            <label for="arrow_left0" class="arrow_label left" style="z-index:11;">&laquo;</label>
+                          </div>
+                          <label for="arrow_left1" class="arrow_label left" style="z-index:10;">&laquo;</label>
+                        </div>
+                        <label for="arrow_left2" class="arrow_label left" style="z-index:9;">&laquo;</label>
+                      </div>
+                      <label for="arrow_left3" class="arrow_label left" style="z-index:8;">&laquo;</label>
+                    </div>
+                    <label for="arrow_left4" class="arrow_label left" style="z-index:7;">&laquo;</label>
+                  </div>
+                  <label for="arrow_left5" class="arrow_label left" style="z-index:6;">&laquo;</label>
+                </div>
+                <label for="arrow_left6" class="arrow_label left" style="z-index:5;">&laquo;</label>
+              </div>
+              <label for="arrow_left7" class="arrow_label left" style="z-index:4;">&laquo;</label>
+            </div>
+            <label for="arrow_left8" class="arrow_label left" style="z-index:3;">&laquo;</label>
+          </div>
+          <label for="arrow_left9" class="arrow_label left" style="z-index:2;">&laquo;</label>
+        </div>
+        <label for="arrow_left10" class="arrow_label left" style="z-index:1;">&laquo;</label>
+      </div>
+
+      <div class="wr i10">
+        <div class="wr i9">
+          <div class="wr i8">
+            <div class="wr i7">
+              <div class="wr i6">
+                <div class="wr i5">
+                  <div class="wr i4">
+                    <div class="wr i3">
+                      <div class="wr i2">
+                        <div class="wr i1">
+                          <div class="wr i0">
+                            <label for="arrow_right0" class="arrow_label right" style="z-index:11;">&raquo;</label>
+                          </div>
+                          <label for="arrow_right1" class="arrow_label right" style="z-index:10;">&raquo;</label>
+                        </div>
+                        <label for="arrow_right2" class="arrow_label right" style="z-index:9;">&raquo;</label>
+                      </div>
+                      <label for="arrow_right3" class="arrow_label right" style="z-index:8;">&raquo;</label>
+                    </div>
+                    <label for="arrow_right4" class="arrow_label right" style="z-index:7">&raquo;</label>
+                  </div>
+                  <label for="arrow_right5" class="arrow_label right" style="z-index:6;">&raquo;</label>
+                </div>
+                <label for="arrow_right6" class="arrow_label right" style="z-index:5;">&raquo;</label>
+              </div>
+              <label for="arrow_right7" class="arrow_label right" style="z-index:4;">&raquo;</label>
+            </div>
+            <label for="arrow_right8" class="arrow_label right" style="z-index:3;">&raquo;</label>
+          </div>
+          <label for="arrow_right9" class="arrow_label right" style="z-index:2;">&raquo;</label>
+        </div>
+        <label for="arrow_right10" class="arrow_label right" style="z-index:1;">&raquo;</label>
+      </div>
+
+
+  <!-- END OF NAVIGATION -->
+
+
+  <div class="slider_container_outer">
+    <ul class="slider_container_inner">
+      <a href="#"><li class = "slider_unit">1</li></a>
+      <a href="#"><li class = "slider_unit">2</li></a>
+      <a href="#"><li class = "slider_unit">3</li></a>
+      <a href="#"><li class = "slider_unit">4</li></a>
+      <a href="#"><li class = "slider_unit">5</li></a>
+      <a href="#"><li class = "slider_unit">6</li></a>
+      <a href="#"><li class = "slider_unit">7</li></a>
+      <a href="#"><li class = "slider_unit">8</li></a>
+      <a href="#"><li class = "slider_unit">9</li></a>
+      <a href="#"><li class = "slider_unit">10</li></a>
+    </ul>
+  </div>
+</section>
